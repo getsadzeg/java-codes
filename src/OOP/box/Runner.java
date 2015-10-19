@@ -12,10 +12,14 @@ package box;
 public class Runner {
     public static void main(String[] args) {
         Box b = new Box();
-        b.width = 7;
-        b.length = 10;
-        b.height = 5;
-        double v = b.width * b.length * b.height;
+        b.setWidth(7);
+        b.setLength(10);
+        b.setHeight(5);
+        double v = b.volume();
+        double s = b.area();
+        double w = b.weight(100);
+        System.out.println(s);
         System.out.println(v);
+        System.out.println(w);
     }
 }
