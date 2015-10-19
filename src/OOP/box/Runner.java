@@ -11,7 +11,7 @@ package box;
  */
 public class Runner {
     public static void main(String[] args) {
-        Box b = new Box();
+        Box b = new Box(7,10,5);
         b.setWidth(7);
         b.setLength(10);
         b.setHeight(5);
