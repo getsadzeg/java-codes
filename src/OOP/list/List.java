@@ -5,7 +5,10 @@ package list;
 public class List {
     private int[] list = new int[100];
     private int element;
-    
+    private int p = 0;
+    private int k = 0;
+    private int clone = 0;
+    private int index = 0;
      public List() {
          
      }
@@ -17,12 +20,6 @@ public class List {
         this.list = list;
     }
     public void addLast(int element) {
-        int p = 0;
-        int k = 0;
-        int t = 20;
-        int clone = 0;
-        int index = 0;
-        //list[0] = 20;
         for(int i=0; i<list.length; i++) {
             p = list[i];
             if(p != 0) {
@@ -43,9 +40,7 @@ public class List {
     }
     
     public void getLast() {
-        int p = 0;
-        int clone = p;
-        int index = 0;
+        clone = p;
         for(int i=0; i<list.length; i++) {
             p = list[i];
             if(p!=0) {
@@ -56,6 +51,42 @@ public class List {
         }
         if(clone == 0) System.out.println("No elements");
             else System.out.println("Last element: " + list[index]);
+    }
+    public void addFirst(int element) {
+        int first = element;
+            for(int i=0; i<list.length; i++) {
+            if(p!=0) {
+                index = i;
+            }
+            }
+            for(int i = index+1; i > 0; i--) {
+            list[i] = list[i-1];
+            }
+            list[0] = element;
+            /*for(int i=0; i<list.length; i++) {
+                System.out.println(list[i]);
+            }*/
+    }
+    public void getFirst() {
+        for(int i=0; i<list.length; i++) {
+            p = list[i];
+            if(p!=0) {
+                clone = p;
+            }
+        }
+        if(clone == 0) System.out.println("No elements");
+            else System.out.println("First element: " + list[0]);
+    }
+    public void removeFirst() {
+       /* System.out.println("First print:");
+        for(int i=0; i<list.length; i++) {
+            System.out.println(list[i]);
+        }
+        System.out.println("Second print:");*/
+        for(int i=0; i<list.length-1; i++) {
+            list[i] = list[i+1];
+            //System.out.println(list[i]);
+        }
     }
 
     public int getElement() {
