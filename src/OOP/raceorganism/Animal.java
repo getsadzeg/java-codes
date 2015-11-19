@@ -3,7 +3,7 @@ package raceorganism;
 
 
 public abstract class Animal extends Creature {
-    boolean isDanger;
-    double runSpeed;
+    public boolean isDanger;
+    public double runSpeed;
     public abstract void run();
 }

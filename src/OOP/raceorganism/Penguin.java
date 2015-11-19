@@ -1,14 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package raceorganism;
 
-/**
- *
- * @author user
- */
-public class Penguin {
+
+public class Penguin extends Bird {
+    private String Owner;
+    public Penguin() {
+        
+    }
+    public Penguin(String Owner) {
+        this.Owner = Owner;
+    }
     
+    @Override 
+    public void breathe() {
+        System.out.println("Penguin's breathing");
+    }
+    @Override
+    public void move() {
+        System.out.println("Pengiun's moving");
+    }
+    @Override
+    public void fly() {
+        System.out.println("In fact, penguin cannot fly");
+    }
+
+    public String getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(String Owner) {
+        this.Owner = Owner;
+    }
 }

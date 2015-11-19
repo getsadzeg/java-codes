@@ -3,6 +3,6 @@ package raceorganism;
 
 
 public abstract class Bird extends Creature {
-    double flySpeed;
+    public double flySpeed;
     public abstract void fly();
 }

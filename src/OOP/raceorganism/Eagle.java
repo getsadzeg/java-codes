@@ -3,7 +3,14 @@ package raceorganism;
 
 
 public class Eagle extends Bird {
-    String color;
+    private String Color;
+    public Eagle() {
+        
+    }
+    public Eagle(String Color) {
+        this.Color = Color;
+    }
+    
     @Override 
     public void breathe() {
         System.out.println("Eagle is breathing");
@@ -15,5 +22,13 @@ public class Eagle extends Bird {
     @Override
     public void fly() {
         System.out.println("Eagle is flying");
+    }
+
+    public String getColor() {
+        return Color;
+    }
+
+    public void setColor(String Color) {
+        this.Color = Color;
     }
 }

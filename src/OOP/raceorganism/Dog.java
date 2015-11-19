@@ -3,7 +3,15 @@ package raceorganism;
 
 
 public class Dog extends Animal {
-    String Variety;
+    private String Variety;
+    
+    public Dog() {
+        
+    }
+    public Dog(String Variety) {
+        this.Variety = Variety;
+    }
+    
     @Override
     public void run() {
         System.out.println("Dog's running");
@@ -15,5 +23,13 @@ public class Dog extends Animal {
     @Override
     public void breathe() {
         System.out.println("Dog's breathing");
+    }
+
+    public String getVariety() {
+        return Variety;
+    }
+
+    public void setVariety(String Variety) {
+        this.Variety = Variety;
     }
 }
