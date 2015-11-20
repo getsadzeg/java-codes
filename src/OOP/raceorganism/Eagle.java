@@ -7,8 +7,9 @@ public class Eagle extends Bird {
     public Eagle() {
         
     }
-    public Eagle(String Color) {
+    public Eagle(String Color, double Coefficient) {
         this.Color = Color;
+        this.Coefficient = Coefficient;
     }
     
     @Override 

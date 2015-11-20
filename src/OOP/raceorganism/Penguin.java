@@ -7,8 +7,9 @@ public class Penguin extends Bird {
     public Penguin() {
         
     }
-    public Penguin(String Owner) {
+    public Penguin(String Owner, double Coefficient) {
         this.Owner = Owner;
+        this.Coefficient = Coefficient;
     }
     
     @Override 
