@@ -3,13 +3,13 @@ package raceorganism;
 
 
 public class Horse extends Animal {
-    private String Gender;
+    private String Sex;
     public Horse() {
         
     }
-    public Horse(String Gender,double Coefficient) {
-        this.Gender = Gender;
-        this.Coefficient = Coefficient;
+    public Horse(String Sex,boolean isDanger, double Coefficient, int number, double speed) {
+        super(isDanger, Coefficient, number, speed);
+        this.Sex = Sex;
     }
     
     @Override
@@ -25,11 +25,11 @@ public class Horse extends Animal {
         System.out.println("Horse's breathing");
     }
 
-    public String getGender() {
-        return Gender;
+    public String getSex() {
+        return Sex;
     }
 
-    public void setGender(String Gender) {
-        this.Gender = Gender;
+    public void setSex(String Sex) {
+        this.Sex = Sex;
     }
 }

@@ -3,13 +3,13 @@ package raceorganism;
 
 
 public class Penguin extends Bird {
-    private String Owner;
+    private Person Owner;
     public Penguin() {
         
     }
-    public Penguin(String Owner, double Coefficient) {
+    public Penguin(Person Owner, double Coefficient, int number, double speed) {
+        super(Coefficient, number, speed);
         this.Owner = Owner;
-        this.Coefficient = Coefficient;
     }
     
     @Override 
@@ -25,11 +25,11 @@ public class Penguin extends Bird {
         System.out.println("In fact, penguin cannot fly");
     }
 
-    public String getOwner() {
+    public Person getOwner() {
         return Owner;
     }
 
-    public void setOwner(String Owner) {
+    public void setOwner(Person Owner) {
         this.Owner = Owner;
     }
 }

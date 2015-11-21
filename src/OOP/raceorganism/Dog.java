@@ -8,9 +8,9 @@ public class Dog extends Animal {
     public Dog() {
         
     }
-    public Dog(String Variety, double Coefficient) {
+    public Dog(String Variety, boolean isDanger, double Coefficient, int number, double speed) {
+        super(isDanger, Coefficient, number, speed);
         this.Variety = Variety;
-        
     }
     
     @Override

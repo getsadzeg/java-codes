@@ -3,16 +3,24 @@ package raceorganism;
 
 
 public abstract class Creature {
-    private byte number;
+    private int number;
     private double speed;
+    private double Coefficient;
     public abstract void breathe();
     public abstract void move();
-
-    public byte getNumber() {
+    public Creature() {
+        
+    }
+    public Creature(int number, double speed, double Coefficient) {
+        this.number = number;
+        this.speed = speed;
+        this.Coefficient = Coefficient;
+    }
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(byte number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 
@@ -23,5 +31,14 @@ public abstract class Creature {
     public void setSpeed(double speed) {
         this.speed = speed;
     }
+
+    public double getCoefficient() {
+        return Coefficient;
+    }
+
+    public void setCoefficient(double Coefficient) {
+        this.Coefficient = Coefficient;
+    }
+    
     
 }
