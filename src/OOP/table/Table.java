@@ -43,5 +43,11 @@ public class Table {
     public void setSmallthings(SmallThings smallthings) {
         this.smallthings = smallthings;
     }
+    public int cost(int percentage, int persons) {
+        int s = foot.getPrice() + surface.getPrice() + smallthings.getPrice();
+        s += persons * 20_00;
+        s+= s *  percentage / 100;
+        return s;
+    }
     
 }
