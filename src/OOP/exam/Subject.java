@@ -1,5 +1,5 @@
 
-package student;
+package exam;
 
 
 public class Subject {
