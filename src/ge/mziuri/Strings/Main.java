@@ -8,6 +8,7 @@ public class Main {
         System.out.println(isSubstring("modi", "od"));
         System.out.println(theLongest("programming is the best thing around the world"));
         System.out.println(mostPopular("yo yo wazza nigga"));
+        System.out.println(caesarCipher("akz", 100));
     }
     public static int numberofnumbers(String s) {
         int x = 0;
@@ -64,5 +65,22 @@ public class Main {
     }
   }
       return popular;
+    }
+    public static String caesarCipher(String s, int p) {
+        char c = ' ';
+        p=p%26;
+        String ciphering = "";
+        for(int i=0; i<s.length(); i++) {
+             if(s.charAt(i) + p <= 'z') {
+             c = (char)(s.charAt(i) + p);
+             ciphering+=c;
+             }
+             else {
+                 
+                 c = (char)(-1+'a' + (p-('z'-s.charAt(i))));
+                 ciphering+=c;
+             }
+        }
+        return ciphering;
     }
 }
