@@ -15,11 +15,21 @@ public class Main {
             System.out.println("like default block!");
         }
         System.out.println("outside catch method"); //will be printed
-        /*try {
-            System.out.println("yo");
+        
+        
+        try {
+            System.out.println(area(3,3,3)); //normal output
+            System.out.println(area(3,3,3000)); //msg activated
         }
-        catch(Exception e) {
-            e.printStackTrace();
-        }*/
+        catch(IllegalTriangleException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    public static double area(double a, double b, double c) throws IllegalTriangleException {
+        if(a+b <= c || a+c <=b || b+c <=a) {
+            throw new IllegalTriangleException("triangle like that is illegal");
+        }
+        double p = (a+b+c)/2;
+        return Math.sqrt(p * (p-a)*(p-b)*(p-c));
     }
 }
