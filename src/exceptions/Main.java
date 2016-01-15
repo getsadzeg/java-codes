@@ -24,6 +24,12 @@ public class Main {
         catch(IllegalTriangleException ex) {
             System.out.println(ex.getMessage());
         }
+        try {
+            System.out.println(volume(3,3,300,1)); //msg activated
+        }
+        catch(IllegalTriangleException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     public static double area(double a, double b, double c) throws IllegalTriangleException {
         if(a+b <= c || a+c <=b || b+c <=a) {
@@ -31,5 +37,9 @@ public class Main {
         }
         double p = (a+b+c)/2;
         return Math.sqrt(p * (p-a)*(p-b)*(p-c));
+    }
+    public static double volume(double a, double b, double c, double h) throws IllegalTriangleException {
+        double s = area(a,b,c);
+        return 1.0/3*s*h;
     }
 }
