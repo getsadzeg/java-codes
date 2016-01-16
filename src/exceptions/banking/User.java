@@ -1,8 +1,8 @@
 package exceptions.banking;
 public class User {
-	String name;
-	String surName;
-	String ID;
+	private String name;
+	private String surName;
+	private String ID;
 	public User() {
 
 	}
