@@ -31,4 +31,13 @@ public class User {
 	public String getID() {
 		return ID;
 	}
+	boolean getMoney(Card card, double money, String password) throws IncorrectPasswordException {
+		if(!password.equals(card.getPassword())) throw new IncorrectPasswordException("Password is incorrect");
+		else if(password.equals(card.getPassword()) && money < card.getCash() || money == card.getCash()) {
+			card.setCash(card.getCash() - money);
+			return true;
+		}
+		else
+			return false;
+	}
 }
