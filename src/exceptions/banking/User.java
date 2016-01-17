@@ -6,10 +6,12 @@ public class User {
 	public User() {
 
 	}
-	public User(String name, String surName, String ID) {
+	public User(String name, String surName, String ID) throws IllegalIDException {
 		this.name = name;
 		this.surName = surName;
-		this.ID = ID;
+		if(ID.length() < 11 && !ID.matches("[0-9]+")) 
+		throw new IllegalIDException("Illegal ID - you referenced non-digit symbols or less than 11 symbols");
+		else this.ID = ID;
 	}
 	public void setName(String name) {
 		this.name = name;
