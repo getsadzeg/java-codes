@@ -22,4 +22,17 @@ public class Runner {
             throw new IllegalNameException("Illegal name");
         }
     }
+	public static void validateSurname(String surname) throws IllegalSurnameException {
+        if(surname.length() <= 1) {
+            throw new IllegalSurnameException("Illegal surname");
+        }
+    }
+    public static void validateID(String ID) throws IllegalIDException {
+        if(ID.length() != 11 || !ID.matches("[0-9]+")) {
+            throw new IllegalIDException("Illegal iD");
+        }
+    }
+    public static void validateYear(int year, int month, int date ) throws IllegalDateException { // use Date class for year
+        //
+    }
 }
