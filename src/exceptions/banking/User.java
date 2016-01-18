@@ -7,7 +7,7 @@ public class User {
 
 	}
 	public User(String name, String surName, String ID) throws IllegalIDException {
-		if(ID.length() != 11 && !ID.matches("[0-9]+")) 
+		if(ID.length() != 11 || !ID.matches("[0-9]+")) 
 		throw new IllegalIDException("Illegal ID - you referenced non-digit symbols or not equals to 11 symbols");
 	    this.name = name;
 		this.surName = surName;
