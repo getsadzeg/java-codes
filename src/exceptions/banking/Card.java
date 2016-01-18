@@ -6,7 +6,7 @@ public class Card {
 
 	}
 	public Card(double cash, String password) throws IllegalPasswordException {
-		if(password.length() < 4 || password.length() == 4) throw new IllegalPasswordException("Password must be more than 4 symbol");
+		if(password.length() <=4) throw new IllegalPasswordException("Password must be more than 4 symbol");
 		this.cash = cash;
 		this.password = password;
 	}
