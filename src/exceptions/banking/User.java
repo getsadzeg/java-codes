@@ -7,8 +7,8 @@ public class User {
 
 	}
 	public User(String name, String surName, String ID) throws IllegalIDException {
-		if(ID.length() < 11 && !ID.matches("[0-9]+")) 
-		throw new IllegalIDException("Illegal ID - you referenced non-digit symbols or less than 11 symbols");
+		if(ID.length() != 11 && !ID.matches("[0-9]+")) 
+		throw new IllegalIDException("Illegal ID - you referenced non-digit symbols or not equals to 11 symbols");
 	    this.name = name;
 		this.surName = surName;
 		this.ID = ID;
@@ -33,7 +33,7 @@ public class User {
 	}
 	boolean getMoney(Card card, double money, String password) throws IncorrectPasswordException {
 		if(!password.equals(card.getPassword())) throw new IncorrectPasswordException("Password is incorrect");
-		else if(password.equals(card.getPassword()) && money < card.getCash() || money == card.getCash()) {
+		if(money < card.getCash() || money == card.getCash()) {
 			card.setCash(card.getCash() - money);
 			return true;
 		}
