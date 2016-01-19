@@ -7,5 +7,6 @@ public class Runner {
 	public static void main(String[] args) {
 		HashMap<String, String> hmap = new HashMap<String, String>();
 		hmap.put("hello", "გამარჯობა");
+		System.out.println(hmap.get("hello"));
 	}
 }
