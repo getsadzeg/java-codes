@@ -16,6 +16,30 @@ public class Runner {
             catch(IllegalNameException ex) {
                 mainex.add(ex);
             }
+            try {
+                validateSurname(surname);
+            }
+            catch(IllegalSurnameException ex) {
+                mainex.add(ex);
+            }
+            try {
+                validateID(ID);
+            }
+            catch(IllegalIDException ex) {
+                mainex.add(ex);
+            }
+            try {
+                validateYear(year, month, date);
+            }
+            catch(IllegalDateException ex) {
+                mainex.add(ex);
+            }
+            try {
+                validateNumber(number);
+            }
+            catch(IllegalNumberException ex) {
+                mainex.add(ex);
+            }
     }
     public static void validateName(String name) throws IllegalNameException {
         if(name.length() <= 1) {
@@ -33,6 +57,12 @@ public class Runner {
         }
     }
     public static void validateYear(int year, int month, int date ) throws IllegalDateException { // use Date class for year
-        //
+        if(month <= 0 || month >= 11) {
+            if(date <= 0 || date >= 30) throw new IllegalDateException("Illegal Date");
+        }
+    public static void validateNumber(String number) {
+        if(!number.matches("[0-9]+")) throw new IllegalNumberException("Illegal Number");
+       }
+
     }
 }
