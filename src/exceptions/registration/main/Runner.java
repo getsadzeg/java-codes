@@ -39,6 +39,12 @@ public class Runner {
                 mainex.add(ex);
             }
             try {
+                validateEmail(email);
+            }
+            catch(IllegalEmailException ex) {
+                mainex.add(ex);
+            }
+            try {
                 validateYear(year, month, date);
             }
             catch(IllegalDateException ex) {
@@ -81,7 +87,8 @@ public class Runner {
         }
     }
     public static void validateEmail(String email) throws IllegalEmailException {
-        if(email.length() < 3 || !email.contains("@")) throw new IllegalEmailException();
+        String arr[] = email.split("@");
+        if(arr.length != 2 || email.length() < 6) throw new IllegalEmailException("Illegal Email");
     }
     public static void validateYear(int year, int month, int date ) throws IllegalDateException { 
         if(month <= 0 || month >= 11)
