@@ -10,9 +10,9 @@ public class Runner {
             register("Guri", "Getsadze", "11", "test", 2002, 5, 14, "555555555", Gender.MALE, "getsadzeg", "wazzaaaaaa1");
                 System.out.println("Successfully registered");
             }
-            catch(MainException ex) { //can't go on catch
+            catch(MainException ex) { 
                 for(int i=0; i<ex.getAmount(); i++) {
-                    System.out.println(ex.getExceptions()[i].getMessage());
+                    System.out.println(ex.getExceptions()[i].getMessage()); //output: Illegal ID and : Must have an upperace character
                 }
             }
     }
@@ -62,6 +62,8 @@ public class Runner {
             catch(IllegalPasswordException ex) {
                 mainex.add(ex);
             }
+            
+            throw mainex;
     }
     public static void validateName(String name) throws IllegalNameException {
         if(name.length() <= 1) {
@@ -81,7 +83,7 @@ public class Runner {
     public static void validateEmail(String email) throws IllegalEmailException {
         if(email.length() < 3 || !email.contains("@")) throw new IllegalEmailException();
     }
-    public static void validateYear(int year, int month, int date ) throws IllegalDateException { // use Date class for year
+    public static void validateYear(int year, int month, int date ) throws IllegalDateException { 
         if(month <= 0 || month >= 11)
             if(date <= 0 || date >= 30) throw new IllegalDateException("Illegal Date");
         Date dateobj = new Date();
