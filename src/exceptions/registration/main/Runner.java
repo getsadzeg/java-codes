@@ -79,7 +79,7 @@ public class Runner {
         }
     }
     public static void validateEmail(String email) throws IllegalEmailException {
-        //
+        if(email.length() < 3 || !email.contains("@")) throw new IllegalEmailException();
     }
     public static void validateYear(int year, int month, int date ) throws IllegalDateException { // use Date class for year
         if(month <= 0 || month >= 11)
