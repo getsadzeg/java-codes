@@ -3,16 +3,20 @@ import registration.enums.*;
 import registration.exceptions.*;
 import java.lang.String;
 import java.lang.Character;
+import java.util.Date;
 public class Runner {
     public static void main(String[] args) {
-       /* try {
-            register("Guri", "Getsadze", "11", "test", 2002, 5, 14, "555555555", MALE, "getsadzeg", "wazzaaaaaa1")
-        }
-        catch(MainException ex) {
-            System.out.println(ex.getMessage());
-        }*/
+            try {
+            register("Guri", "Getsadze", "11", "test", 2002, 5, 14, "555555555", Gender.MALE, "getsadzeg", "wazzaaaaaa1");
+                System.out.println("Successfully registered");
+            }
+            catch(MainException ex) { //can't go on catch
+                for(int i=0; i<ex.getAmount(); i++) {
+                    System.out.println(ex.getExceptions()[i].getMessage());
+                }
+            }
     }
-     public static void register(String name, String surname, String ID, String email, int year,
+    public static void register(String name, String surname, String ID, String email, int year,
             int month, int date, String number, Gender gender, String username, String password) throws MainException {
         
             MainException mainex = new MainException();
@@ -75,11 +79,13 @@ public class Runner {
         }
     }
     public static void validateEmail(String email) throws IllegalEmailException {
-        if(!"test".equals(email)) throw new IllegalEmailException("Illegal email");
+        //
     }
     public static void validateYear(int year, int month, int date ) throws IllegalDateException { // use Date class for year
         if(month <= 0 || month >= 11)
             if(date <= 0 || date >= 30) throw new IllegalDateException("Illegal Date");
+        Date dateobj = new Date();
+        //should add date
         }
     public static void validateNumber(String number) throws IllegalNumberException {
         if(!number.matches("[0-9]+")) throw new IllegalNumberException("Illegal Number");
@@ -92,5 +98,9 @@ public class Runner {
     public static void validatePassword(String password) throws IllegalPasswordException {
         if(!password.matches(".*\\d+.*") || password.length() < 8 || password.length() > 12)
             throw new IllegalPasswordException("Illegal Password");
+        boolean hasUppercase = !password.equals(password.toLowerCase());
+        boolean hasLowercase = !password.equals(password.toUpperCase());
+        if(!hasUppercase) throw new IllegalPasswordException("Must have an uppercase character");
+        if(!hasLowercase) throw new IllegalPasswordException("Must have an lowercase character");
     }
 }
