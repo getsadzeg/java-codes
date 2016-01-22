@@ -15,8 +15,23 @@ public class MainException extends Exception {
     private final Exception exceptions[] = new Exception[10];
     private int amount;
     public void add(Exception ex) {
-        exceptions[amount] = ex;
-        amount++;
+        getExceptions()[getAmount()] = ex;
+        setAmount(getAmount() + 1);
     }
+
+    public Exception[] getExceptions() {
+        return exceptions;
+    }
+
+    
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    
     
 }
