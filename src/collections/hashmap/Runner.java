@@ -8,5 +8,9 @@ public class Runner {
 		HashMap<String, String> hmap = new HashMap<String, String>();
 		hmap.put("hello", "გამარჯობა");
 		System.out.println(hmap.get("hello"));
+		Iterator it2 = hmap.entrySet().iterator();
+		while(it2.hasNext()) {
+			System.out.println(it2.next());
+		}
 	}
 }
