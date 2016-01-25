@@ -9,5 +9,9 @@ public class Runner {
         arr.add(14);
         arr.add(2);
         System.out.println(arr);
+        arr.add(1,27); //add element via index, but throws exception when trying to access out for bound index
+        System.out.println(arr.get(2)); //output: 14
+        arr.remove((Integer)14); //via object
+        arr.remove(1); //via index
     }
 }
