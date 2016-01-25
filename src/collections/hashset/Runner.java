@@ -13,5 +13,10 @@ public class Runner {
         someset.add(25);
         someset.add(1);
         System.out.println(someset);
+		System.out.println("size: " + someset.size());
+        Iterator it = someset.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
     }
 }
