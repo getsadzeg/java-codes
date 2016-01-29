@@ -1,7 +1,6 @@
 
 package collections.tasks.findrepeat;
 import java.util.HashSet;
-import java.util.Iterator;
 public class Main {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
@@ -25,22 +24,9 @@ public class Main {
 
     
     public static Object iterateThrough(HashSet first, HashSet second) {
-        Iterator it = first.iterator();
-        Iterator it0 = second.iterator();
+        
         Object duplicate = null;
-           while(it0.hasNext()) {
-                    duplicate = it0.next();
-                    if (first.contains(duplicate)) {
-                    for (Object obj : first) {
-                    if (obj.equals(duplicate)) {
-                         duplicate = obj;
-                         //return obj;
-                    }
-                    
-          }
-           }
-          
-    }
+           
             return null;
    }
 }
