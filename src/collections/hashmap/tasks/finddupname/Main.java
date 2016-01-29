@@ -1,5 +1,5 @@
 
-package tasks.finddupname;
+package hashmap.tasks.finddupname;
 import java.util.HashMap;
 
 public class Main {
