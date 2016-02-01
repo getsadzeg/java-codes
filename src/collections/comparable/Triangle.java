@@ -52,5 +52,10 @@ public class Triangle implements Comparable<Triangle>{
         }
         else return -1;
     }
+    @Override
+    public String toString() {
+        String str = System.lineSeparator() + "Triangle: " +  a + " " + b + " " + c + "Area: " + area();
+        return str;
+    }
     
 }
