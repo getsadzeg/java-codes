@@ -1,5 +1,5 @@
 
-package comparable;
+package collections.comparable.Triangle;
 import java.util.*;
         
 public class Runner {

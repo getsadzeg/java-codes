@@ -1,5 +1,5 @@
 
-package comparable;
+package collections.comparable.Triangle;
 
 
 public class Triangle implements Comparable<Triangle>{
