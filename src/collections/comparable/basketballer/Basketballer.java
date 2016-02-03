@@ -2,7 +2,7 @@
 package collections.comparable.basketballer;
 
 
-public class Basketballer {
+public class Basketballer implements Comparable<Basketballer> {
     private int points;
     private int rebounds;
     private int assists;
@@ -19,6 +19,14 @@ public class Basketballer {
         this.steals = steals;
         this.blocks = blocks;
         this.losses = losses;
+    }
+    public double addOn() {
+        double dassists = (double)assists;
+        dassists*=1.5;
+        steals*=2;
+        blocks*=2;
+        losses*=-2;
+        return points + rebounds + dassists + steals + blocks + losses;
     }
     public int getPoints() {
         return points;
@@ -66,6 +74,20 @@ public class Basketballer {
 
     public void setLosses(int losses) {
         this.losses = losses;
+    }
+
+    @Override
+    public int compareTo(Basketballer t) {
+        if(t.addOn() > this.addOn()) 
+            return 1;
+        else if(t.addOn() == this.addOn()) 
+            return 0;
+        else return -1;
+    }
+    @Override
+    public String toString() {
+        String str = System.lineSeparator() + "Summary of results: " + addOn();
+        return str;
     }
     
 }
