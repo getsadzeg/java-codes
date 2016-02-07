@@ -16,15 +16,23 @@ public class Student {
         this.marks = marks;
         this.birthDate = birthDate;
     }
-    public long age() {
+    public long age() { //if millseconds are less, that's hint of greater age.
         return getBirthDate().getTime();
     }
-    public int averageMark() {
-        int sum = 0;
+    public double averageMark() { //needs fix. ?
+        double sum = 0.0;
         for (Integer mark : marks) {
             sum += (int)mark;
         }
         return sum/marks.size();
+    }
+    public int lex(String othername) {
+        return this.name.compareTo(othername);
+    }
+    @Override
+    public String toString() {
+        String str = System.lineSeparator() + "Age: " + age() + " Average mark: " + averageMark();
+        return str;
     }
     public String getName() {
         return name;
