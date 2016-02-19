@@ -8,7 +8,7 @@ public class Student implements Serializable {
     private String name;
     private String surname; //add new field
     private int age;
-    private ArrayList<Integer> marks = new ArrayList<Integer>();
+    private transient ArrayList<Integer> marks = new ArrayList<Integer>(); //variable which has modification of transient won't be written in file
     public Student() {
         
     }
