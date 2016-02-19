@@ -4,7 +4,9 @@ import java.util.*;
 import java.io.*;
 
 public class Student implements Serializable {
+    private static final long serialVersionUID = 1L; //deserialization won't work without this
     private String name;
+    private String surname; //add new field
     private int age;
     private ArrayList<Integer> marks = new ArrayList<Integer>();
     public Student() {
