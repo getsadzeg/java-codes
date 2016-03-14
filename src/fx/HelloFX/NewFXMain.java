@@ -11,6 +11,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.util.logging.*;
+import javafx.scene.control.Alert;
 
 public class NewFXMain extends Application {
     
@@ -24,6 +25,9 @@ public class NewFXMain extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("This is information");
+                alert.showAndWait();
                 System.out.println("Log");
             }
         });
