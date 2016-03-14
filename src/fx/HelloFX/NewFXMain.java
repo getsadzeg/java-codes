@@ -10,17 +10,26 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
+import java.util.logging.*;
 
 public class NewFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Label label = new Label("Hello World");
-        label.setFont(new Font("Cambria", 20));
+        /*Label label = new Label("Hello World");
+        label.setFont(new Font("Cambria", 20));*/
+        
+        Button btn = new Button("Click!");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Log");
+            }
+        });
         
         StackPane root = new StackPane();
-        root.getChildren().add(label);
+        root.getChildren().add(btn);
         
         Scene scene = new Scene(root, 300, 250);
         primaryStage.setTitle("Hi, FX");
