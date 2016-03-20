@@ -14,7 +14,14 @@ import javafx.stage.Stage;
 
 
 public class NewFXMain extends Application {
-    
+    boolean isPercentage = false;
+    boolean isDivide = false;
+    boolean isMultiply = false;
+    boolean isSubtract = false;
+    boolean isAddition = false;
+    Integer first = null;
+    Integer second = null;
+    String[] tokens = null;
     @Override
     public void start(Stage primaryStage) {
         GridPane root = new GridPane();
@@ -22,6 +29,14 @@ public class NewFXMain extends Application {
         root.setVgap(7);
         root.setHgap(7);
         TextField field = new TextField();
+        Button zero = new Button();
+        zero.setFont(new Font(15));
+        root.add(zero, 3, 4);
+        zero.setText("0");
+        zero.setOnAction((event) -> {
+            field.setText(field.getText() + zero.getText());
+        });
+        
         Button one = new Button();
         one.setFont(new Font(15));
         root.add(one, 0, 3);
@@ -67,7 +82,7 @@ public class NewFXMain extends Application {
         root.add(six, 2, 4);
         six.setText("6");
         six.setOnAction((event) -> {
-            field.setText(field.getText() + five.getText());
+            field.setText(field.getText() + six.getText());
         });
         
         Button seven = new Button();
@@ -103,19 +118,22 @@ public class NewFXMain extends Application {
         });
         
         Button btnPercentage = new Button();
+         
         btnPercentage.setFont(new Font(15));
         root.add(btnPercentage, 3, 2);
         btnPercentage.setText("%");
         btnPercentage.setOnAction((event) -> {
                 field.setText(field.getText() + btnPercentage.getText());
+                isPercentage = true;
         });
         
         Button btnDivide = new Button();
         btnDivide.setFont(new Font(15));
-        root.add(btnDivide, 3, 4);
+        root.add(btnDivide, 4, 1);
         btnDivide.setText("÷");
         btnDivide.setOnAction((event) -> {
                 field.setText(field.getText() + btnDivide.getText());
+                isDivide = true;
         });
         
         Button btnMultiply = new Button();
@@ -124,6 +142,7 @@ public class NewFXMain extends Application {
         btnMultiply.setText("×");
         btnMultiply.setOnAction((event) -> {
                 field.setText(field.getText() + btnMultiply.getText());
+                isMultiply = true;
         });
         
         Button btnSubtract = new Button();
@@ -132,6 +151,7 @@ public class NewFXMain extends Application {
         btnSubtract.setText("-");
         btnSubtract.setOnAction((event) -> {
                 field.setText(field.getText() + btnSubtract.getText());
+                isSubtract = true;
         });
         
         Button btnAddition = new Button();
@@ -140,6 +160,7 @@ public class NewFXMain extends Application {
         btnAddition.setText("+");
         btnAddition.setOnAction((event) -> {
                 field.setText(field.getText() + btnAddition.getText());
+                isAddition = true;
         });
         
         Button btnEquality = new Button();
@@ -147,7 +168,36 @@ public class NewFXMain extends Application {
         root.add(btnEquality, 3, 1);
         btnEquality.setText("=");
         btnEquality.setOnAction((event) -> {
-                // action will be here
+                if(isPercentage) {
+                    tokens = field.getText().split("%");
+                    first = Integer.parseInt(tokens[0]);
+                    second = Integer.parseInt(tokens[1]);
+                    field.setText(first.doubleValue() * (second.doubleValue()/100) + "");
+                }
+               if(isDivide) {
+                    tokens = field.getText().split("÷");
+                    first = Integer.parseInt(tokens[0]);
+                    second = Integer.parseInt(tokens[1]);
+                    field.setText(first.doubleValue() / second.doubleValue() + "");
+               }
+               if(isMultiply) {
+                    tokens = field.getText().split("×");
+                    first = Integer.parseInt(tokens[0]);
+                    second = Integer.parseInt(tokens[1]);
+                    field.setText(first.doubleValue() * second.doubleValue() + "");
+               }
+               if(isSubtract) {
+                    tokens = field.getText().split("-");
+                    first = Integer.parseInt(tokens[0]);
+                    second = Integer.parseInt(tokens[1]);
+                    field.setText(first.doubleValue() - second.doubleValue() + "");
+               }
+               if(isAddition) {
+                    tokens = field.getText().split("[+]");
+                    first = Integer.parseInt(tokens[0]);
+                    second = Integer.parseInt(tokens[1]);
+                    field.setText(first.doubleValue()+  second.doubleValue() + "");
+               }
         });
         
         Scene scene = new Scene(root, 300, 250);
