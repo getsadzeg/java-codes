@@ -162,6 +162,14 @@ public class NewFXMain extends Application {
                 field.setText(field.getText() + btnAddition.getText());
                 isAddition = true;
         });
+        Button btnBackSpace = new Button();
+        btnBackSpace.setFont(new Font(15));
+        root.add(btnBackSpace, 4, 2);
+        btnBackSpace.setText("<-");
+       // String text = field.getText().substring(0, field.getText().length()-1);
+        btnBackSpace.setOnAction((event) -> {
+           field.setText(field.getText().replace(field.getText().substring(field.getText().length()-1), ""));
+        });
         
         Button btnEquality = new Button();
         btnEquality.setFont(new Font(15));
