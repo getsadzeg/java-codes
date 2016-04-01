@@ -9,11 +9,15 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -49,7 +53,54 @@ public class NewFXMain extends Application {
         markColumn.setCellValueFactory(new PropertyValueFactory<>("mark"));
         table.getColumns().addAll(nameColumn, surnameColumn, markColumn);
         table.setItems(getStudents());
-        root.getChildren().addAll(label, table);
+        
+        TextField nameField = new TextField();
+        nameField.setFont(new Font("sylfaen", 13));
+        nameField.setPromptText("სახელი");
+        
+        TextField surnameField = new TextField();
+        surnameField.setFont(new Font("sylfaen", 13));
+        surnameField.setPromptText("გვარი");
+        ComboBox<Integer> combo = new ComboBox<>();
+        combo.getItems().addAll(1,2,3,4,5,6,7,8,9,10);
+        combo.setValue(1);
+        
+        Button addButton = new Button("დამატება");
+        addButton.setFont(new Font("sylfaen", 13));
+        addButton.setOnAction((event) -> {
+            String name = nameField.getText();
+            String surname = surnameField.getText();
+            int mark = combo.getValue();
+            Student s = new Student(name, surname, mark);
+            table.getItems().add(s);
+            nameField.setText("");
+            surnameField.setText("");
+            combo.setValue(1);
+        });
+        
+        Button removeButton = new Button("წაშლა");
+        removeButton.setFont(new Font("sylfaen", 13));
+        
+        removeButton.setOnAction((event) -> {
+            ObservableList<Student> selected = table.getSelectionModel().getSelectedItems();
+            if(selected.size() == 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Please select a row");
+                alert.showAndWait();
+            }
+            else {
+                ObservableList<Student> allStudents = table.getItems();
+                for(Student s: selected) 
+                    allStudents.remove(s);
+            }
+        });
+        
+        FlowPane flowPane = new FlowPane();
+        flowPane.setHgap(10);
+        flowPane.setVgap(10);
+        flowPane.getChildren().addAll(nameField,surnameField,combo,addButton,removeButton);
+        
+        root.getChildren().addAll(label,table,flowPane);
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("TableView!");
