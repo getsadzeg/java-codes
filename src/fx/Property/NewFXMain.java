@@ -2,6 +2,8 @@
 package Property;
 
 import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -27,6 +29,12 @@ public class NewFXMain extends Application {
             }
         });
         
+        IntegerProperty x = new SimpleIntegerProperty(5);
+        IntegerProperty y = new SimpleIntegerProperty();
+        y.bind(x.multiply(3));
+        System.out.println(x.get() + " " + y.get());
+        x.set(20);
+        System.out.println(x.get() + " " + y.get());
         StackPane root = new StackPane();
         root.getChildren().add(btn);
         
