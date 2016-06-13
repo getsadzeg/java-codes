@@ -1,5 +1,5 @@
 public class Characters {
-	 public static void main(String[] args) {
+	public static void main(String[] args) {
 		System.out.println(Character.isDigit('c')); //false
 		System.out.println(Character.isDigit('5')); //true
 		System.out.println(Character.isUpperCase('a')); //false

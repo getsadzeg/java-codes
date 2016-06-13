@@ -6,8 +6,8 @@ public class Numbers {
 		System.out.println(x.equals(3)); //false
 		System.out.println(x.toString()); //returns 2. But it's string.
 		System.out.println(Math.abs(w)); //Returns 5.
-		System.out.println(Math.min(x,w)); //Returns -5.
-		System.out.println(Math.max(x,w)); //Returns 2.
-		System.out.println(Math.random()); //Returns random number. 
+		System.out.println(Math.min(x, w)); //Returns -5.
+		System.out.println(Math.max(x, w)); //Returns 2.
+		System.out.println(Math.random()); //Returns random number.
 	}
 }
