@@ -13,7 +13,7 @@ public class Runner {
             Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/db", "postgres", "rame");
             Statement st = conn.createStatement();
             st.executeUpdate("CREATE TABLE country ( id INT PRIMARY KEY, name VARCHAR(30))");
-            System.out.println("table created");
+            st.executeUpdate("INSERT INTO country VALUES( 1, 'საქართველო')");
         }
         catch(Exception ex) {
             System.out.println(ex.getMessage());
